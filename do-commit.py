@@ -36,14 +36,8 @@ if __name__ == "__main__":
 
     #git add all files
     code=os.system("git add .")
-    if code != 0:
-        print("git add failed")
-        exit(1)
     #git commit
     code=os.system('git commit -m "pages auto commit"')
-    if code != 0:
-        print("git commit failed")
-        exit(1)
     #git push
     code=os.system("git push")
     if code != 0:
