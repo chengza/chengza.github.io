@@ -1,0 +1,5 @@
+我的这个静态博客为了方便起见使用的是python脚本做了简单的打包工作，将md文件转换成html最后整理打包上传到github。其中依赖了markdown库，如果迁移到别的电脑上使用就不仅仅需要安装python，还要安装markdown库，这不方便。
+
+使用pyinstaller可以把python程序打包成exe或者unix执行程序。安装过程不介绍了，就是使用pip而已。
+
+
