@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # collect all .md files in posts directory
     files = glob.glob("posts/*.md")
     # sort by modification time
-    files.sort(key=os.path.getmtime)
+    files.sort(key=os.path.getmtime,reverse=True)
     # check if matching html file is in the output directory ./html
     with open("post.template.html", "r") as f:
         post_template = f.read()
