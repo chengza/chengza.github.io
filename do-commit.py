@@ -22,18 +22,19 @@ if __name__ == "__main__":
             html = markdown.markdownFromFile(input=f, output=html_file, encoding="utf-8")
             print("Converted %s to %s" % (f, html_file))
 
-    #create index.html file
-    index = open("./index.html", "w")
-    index.write("<html><head><title>My Blog</title></head><body>")
-    index.write("<h1>My Blog</h1>")
-    index.write("<ul>")
-    for f in files:
-        html_file = f.replace(".md", ".html")
-        html_file = html_file.replace("posts", "html")
-        index.write("<li><a href='" + html_file + "'>" + f + "</a></li>")
-    index.write("</ul>")
-    index.write("</body></html>")
-    index.close()
+    #create index.html file by ./index.tamplate.html
+    with open("index.template.html", "r",encoding='utf-8') as f:
+        template = f.read()
+        list_str = "<ul>"
+        for f in files:
+            html_file = f.replace(".md", ".html")
+            html_file = html_file.replace("posts", "html")
+            list_str += "<li><a href='%s'>%s</a></li>" % (html_file, f.split('/')[-1].split('\\')[-1][:-3])
+        list_str += "</ul>"
+        template = template.replace("{{list}}", list_str)
+        with open("index.html", "w",encoding='utf-8') as f:
+            f.write(template)
+    # exit(0)
 
     #git add all files
     code=os.system("git add .")
