@@ -4,7 +4,7 @@
 
 由于本身依赖项比较少，代码不复杂，直接使用一行命令简单打包。
 
-```shell
+```
 pyinstaller -F do-commit.py
 ```
 
