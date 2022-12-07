@@ -20,6 +20,7 @@ if __name__ == "__main__":
         if not os.path.exists(html_file) or os.path.getmtime(f) > os.path.getmtime(html_file):
             #convert markdown to html file
             html = markdown.markdownFromFile(input=f, output=html_file, encoding="utf-8")
+            print("Converted %s to %s" % (f, html_file))
 
     #create index.html file
     index = open("./index.html", "w")
