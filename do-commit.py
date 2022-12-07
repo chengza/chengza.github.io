@@ -14,12 +14,18 @@ if __name__ == "__main__":
     #sort by modification time
     files.sort(key=os.path.getmtime)
     #check if matching html file is in the output directory ./html
+    with open("post.template.html", "r") as f:
+        post_template = f.read()
     for f in files:
         html_file = f.replace(".md", ".html")
         html_file = html_file.replace("posts", "html")
         if not os.path.exists(html_file) or os.path.getmtime(f) > os.path.getmtime(html_file):
-            #convert markdown to html file
-            html = markdown.markdownFromFile(input=f, output=html_file, encoding="utf-8")
+            #convert markdown to html string
+            html = markdown.markdown(open(f).read())
+            post_html=post_template.replace("{{post}}", html)
+            #write html string to html file
+            with open(html_file, "w") as f:
+                f.write(post_html)
             print("Converted %s to %s" % (f, html_file))
 
     #create index.html file by ./index.tamplate.html
