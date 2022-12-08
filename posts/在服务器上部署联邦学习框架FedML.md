@@ -98,4 +98,10 @@ tracking_args:
 python torch_fedavg_mnist_lr_one_line_example.py --cf fedml_config.yaml
 ```
 
-就能看到一些软件、硬件、网络检测信息输出，以及慢慢等待下载mnist数据集的进度条。
+就能看到一些软件、硬件、网络检测信息输出，以及慢慢等待下载mnist数据集的进度条。最后训练结果还可以。
+
+```
+
+```
+
+
